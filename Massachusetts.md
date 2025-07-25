@@ -1,7 +1,6 @@
 ## Massachusetts Education System Analysis
 <img src="https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/05/bostonlatinfb.jpg"/>
-**Project description:** Using a dataset from the Massachusetts Education Department, I analyzed KPI's from approximately 1900 schools and 1 million students to get a broad picture of how the education system is performing. I used Tableau to create a dashboard with visualizations measuring these key metrics:
-Graduation rate, College Attendance rate vs Average class size, economic status vs college attendance, and 4th grade math passing levels.
+Using a dataset from the Massachusetts Education Department, I used Tableau to visualize KPI's to get a broad picture of how the education system is performing. 
 
 
 ### 1. Introduction / Why
