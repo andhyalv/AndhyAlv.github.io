@@ -3,7 +3,7 @@
 ---
 
 ### Learn About My Projects
-### [Tableau Massachusetts Education Performance](/sample_project)
+### [Tableau Massachusetts Education Performance](/Massachusetts)
 <img src="https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/05/bostonlatinfb.jpg"/>
 
 ---
