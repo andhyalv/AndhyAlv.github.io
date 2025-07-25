@@ -16,7 +16,7 @@ The dataset is provided by the Massachusetts Department of Education. It contain
 <!-- example.html on GitHub Pages -->
 <h2>My Tableau Dashboard</h2>
 
-<iframe src="https://public.tableau.com/views/Book2_17530197870140/Dashboard1?:embed=y&:display_count=yes&:origin=viz_share_link"
+<iframe src="https://public.tableau.com/views/Book2_17530197870140/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:embed=y&:display_count=yes&:origin=viz_share_link"
         width="1000"
         height="800"
         frameborder="0"
