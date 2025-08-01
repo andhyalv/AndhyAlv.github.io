@@ -1,7 +1,7 @@
 # Bank Project
 
 ## Massachusetts Education System Analysis
-<img src="https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/05/bostonlatinfb.jpg"/>
+<img src=""/>
 
 ### Introduction
 
