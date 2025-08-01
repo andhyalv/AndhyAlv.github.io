@@ -38,14 +38,15 @@ The line chart shows that there are many schools who do not meet the standards f
 
 ### Conclusion
 From the dataset, we get a clear picture of performance in the Massachusetts Education system. Here are some takeaways from the data.
-1) learn that graduation rates show a trend of many high performing schools compared to low performing ones. We can dig deeper into specific low performing schools to understand why that is the case.
+
+1) We learn that graduation rates show a trend of many high performing schools compared to low performing ones. We can dig deeper into specific low performing schools to understand why that is the case.
 
 2) We also learned that economic status plays a large role in college attendance rates, with schools at an economic disadvantage being less likely to have college attendees. 
 
-3) Lastly we learned that many schools are not meeting the passing threshold for 4th Grade Math levels. Learning about why this is the case is important because improving performance while students are young will build a great foundation for them moving forward in the education system.
+3) Lastly we learned that many schools are not meeting the passing threshold for 4th Grade Math levels. Digging deeper into why this is the case is important because it can provide us with solutions that can improve the educational foundation of students.
   
 ### Call to Action
-If you were interested in discussing the dataset further or have feedback on the analysis, feel free to message me on (LinkedIn!)[https://www.linkedin.com/in/andhyalvarez/]
+If you were interested in discussing the dataset further or have feedback on the analysis, feel free to message me on [LinkedIn!](https://www.linkedin.com/in/andhyalvarez/)
 
 
 
