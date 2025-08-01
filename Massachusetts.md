@@ -16,7 +16,7 @@ c) Many schools are behind the passing threshold for the 4th grade standardized 
 ### 3. Dataset and tools
 The dataset is provided by the Massachusetts Department of Education. It contains performance metrics from 1,861 schools and 953,748 students. I input this data into Tableau to create visualizations for the relationships that we are investigating. [Here is a link to the dataset.](https://www.kaggle.com/datasets/ndalziel/massachusetts-public-schools-data)
 For this project, I created a Dashboard on Tableau. [Feel free to take a look for yourself!](https://public.tableau.com/app/profile/andhy.alvarez/viz/Book2_17530197870140/Dashboard1?publish=yes)
-![Tableau Dashboard](images/Dashboard_1.png "Tableau Dashboard")
+![Tableau Dashboard](images/Dashboard1.png "Tableau Dashboard")
 
 
 ### 4. Metrics being measured + Analysis
