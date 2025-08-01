@@ -1,7 +1,5 @@
 ## Massachusetts Education System Analysis
 <img src="https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/05/bostonlatinfb.jpg"/>
-Using a dataset from the Massachusetts Education Department, I created KPI visualizations in Tableau to get a clear picture of how their education system is performing.
-
 
 ### Introduction
 A strong education is an important foundation for kids as they grow up. To improve this foundation, I believe it is important to understand why schools perform the way that they do. From that understanding we are better equipped to make decisions to improve school performance. The Massachusetts Department of Education provides a yearly school performance dataset. Through analyzing this dataset, I believe that we will we learn insights about the low and high performing schools that can help us to make improvements to the overall system. 
