@@ -17,24 +17,25 @@ For this project, I used SQL queries to analyze certain aspects of the data. I w
 ### Data Analysis
 
 #### a) Return the whole dataset
-[SQL](images/returnall.png)
+![SQL](images/returnall.png)
 
 #### b) Return the rows of the table, but only Borrower and IDA columns
-[SQL](images/returnborrerida(1).png)
+![SQL](images/returnborrerida(1).png)
 
 #### c) Show us all transactions from Nicaragua
-[SQL](images/AllNicaragua.png)
+![SQL](images/AllNicaragua.png)
 
 #### d) How many Total Transactions
-[SQL](images/totaltransactions.png)
+![SQL](images/totaltransactions.png)
+
 #### e) How many Total transactions Per Country?
-[SQL](images/transactionpercountry.png)
+![SQL](images/transactionpercountry.png)
 
 #### f) What is the Max owed to the IDA?
-[SQL](images/maxowedtoIDA.png)
+![SQL](images/maxowedtoIDA.png)
 
 #### g) Who has the most loans?
-[SQL](images/mostloans.png)
+![SQL](images/mostloans.png)
 ### Conclusion
 
 ### Call to Action
