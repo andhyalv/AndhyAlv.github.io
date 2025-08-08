@@ -20,7 +20,7 @@ For this project, I used SQL queries to analyze certain aspects of the data. I w
 ![SQL](images/returnall.png)
 
 #### b) Return the rows of the table, but only Borrower and IDA columns
-![SQL](images/returnborrerida(1).png)
+![SQL](images/returnborrowerida(1).png)
 
 #### c) Show us all transactions from Nicaragua
 ![SQL](images/AllNicaragua.png)
