@@ -1,29 +1,40 @@
-# Bank Project
+# Bank Loans SQL Analysis
 
-## Massachusetts Education System Analysis
-<img src=""/>
+## 
+![World Bank](images/worldbank.png "World Bank Image")
 
 ### Introduction
-
+Working with a data set from the World Bank, the following project will analyze bank loans to many countries and derive insights from it.
 
 ### What will you learn
 
 
 ### Dataset and tools
-The dataset is provided by the Massachusetts Department of Education. It contains performance metrics from 1,861 schools and 953,748 students. I input this data into Tableau to create visualizations for the relationships that we are investigating. [Here is a link to the dataset.]()
-
-For this project, I created a Dashboard on Tableau. [Feel free to take a look for yourself!]()
+The dataset is provided by the World Bank, up to the most recent quarter on August 2025. The dataset contains loan information from many countries, such as the service charge rate, amount due to the IDA (International Development Association), amount repaid to the IDA and so on. Each row in the dataset represents a transaction between a country and the IDA.
+For this project, I used SQL queries to analyze certain aspects of the data. I will provide the SQL code and query results below.
 
 
 ### Data Analysis
-The sample size of the dataset includes 1,861 schools and 953,748 students. We will investigate a few KPI's to get a clear picture on the performance of the education system.
 
-#### a)
+#### a) Return the whole dataset
+[SQL](images/returnall.png)
 
-#### b)
+#### b) Return the rows of the table, but only Borrower and IDA columns
+[SQL](images/returnborrerida(1).png)
 
-#### c)
+#### c) Show us all transactions from Nicaragua
+[SQL](images/AllNicaragua.png)
 
+#### d) How many Total Transactions
+[SQL](images/totaltransactions.png)
+#### e) How many Total transactions Per Country?
+[SQL](images/transactionpercountry.png)
+
+#### f) What is the Max owed to the IDA?
+[SQL](images/maxowedtoIDA.png)
+
+#### g) Who has the most loans?
+[SQL](images/mostloans.png)
 ### Conclusion
 
 ### Call to Action
