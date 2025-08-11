@@ -42,11 +42,11 @@ We want to see transactions from Nicaragua only, so we input this query. Looking
 #### d) How many Total Transactions
 The total amount of
 ![SQL](images/totaltransactions.png)
-![SQL](images/query3.png)
+![SQL](images/query4.png)
 
 #### e) How many Total transactions Per Country?
-![SQL](images/transactionpercountry.png)
-![SQL](images/query4.png)
+![SQL](images/query7sql.png)
+![SQL](images/query7.png)
 
 #### f) What is the Max owed to the IDA?
 ![SQL](images/maxowedtoIDA.png)
