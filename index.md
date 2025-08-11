@@ -10,7 +10,7 @@ What can we learn from the performance of schools in the Massachusetts Education
 ---
 
 ### [SQL Bank Project](/bank)
-<img src=""/>
+![World Bank](images/worldbank.png "World Bank Image")
 
 ---
 
