@@ -15,10 +15,10 @@ c) The total amount of transactions, and the total amount of transactions per co
 
 d) The max amount owed to the IDA
 
-e) The country with the most loans owed to the IDA is India with $3,878,789,578,329.68
+e) What country has the most loans owed to the IDA?
 
 ### Dataset and tools
-The dataset is provided by the World Bank, up to the most recent quarter on August 2025. The dataset contains loan information from many countries, such as the service charge rate, amount due to the IDA (International Development Association), amount repaid to the IDA and so on. Each row in the dataset represents a transaction between a country and the IDA.
+The dataset is provided by the World Bank, up to the most recent quarter on August 2025. The dataset contains loan information from many countries, such as the service charge rate, amount due to the IDA (International Development Association), amount repaid to the IDA and so on. Each row in the dataset represents a transaction between a country and the IDA. Loan transactions are recorded back to June 29, 1961 up to the present.
 For this project, I used SQL queries to analyze certain aspects of the data. I will provide the SQL code and query output below.
 
 
@@ -40,19 +40,22 @@ We want to see transactions from Nicaragua only, so we input this query. Looking
 ![SQL](images/query3.png)
 
 #### d) How many Total Transactions
-The total amount of
+The total amount of transactions can be found from the Query below. The output is 1,443,906 transactions, showing a lot of volume between countries and the World Bank.
 ![SQL](images/totaltransactions.png)
 ![SQL](images/query4.png)
 
 #### e) How many Total transactions Per Country?
+The total transactions per country is found by the query below. I ordered the output with the phrase "Order By" and made sure it starts from the countries that have the most transactions with the phrase "Desc". From the output we can see South Asia represented heavily, with India, Bangladesh and Pakistan having the top 3 most transactions with the IDA. Africa is well represented too, with the remaining countries in the top 10 coming from Africa. 
 ![SQL](images/query7sql.png)
 ![SQL](images/query7.png)
 
 #### f) What is the Max owed to the IDA?
+The max amount owed to the IDA can be found by the query below. The output shows us that the most owed is $4,800,000,000.
 ![SQL](images/maxowedtoIDA.png)
 ![SQL](images/query5.png)
 
 #### g) Who has the most loans?
+The country with the most loans is India with $3,878,789,578,329.68, followed by Bangladesh and Pakistan. This tracks with their high volume of transactions that we learned of previously.
 ![SQL](images/mostloans.png)
 ![SQL](images/query6.png)
 ### Conclusion
