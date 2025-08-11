@@ -1,6 +1,5 @@
 # World Bank Credits and Loans SQL Analysis
 
-## 
 ![World Bank](images/worldbank.png "World Bank Image")
 
 ### Introduction
@@ -30,35 +29,43 @@ The first query is meant to return the whole table from the dataset. I had to in
 ![SQL](images/query1.png)
 
 #### b) Borrower and amount due to the IDA
-The next aspect of the dataset we are looking at is how much each borrower owes to the IDA. To find this out, I entered the query below and got a table showing all borrowers and the amount they owe to the IDA. Looking at the output, there are more borrowers that owe 0 to the IDA than there are those that owe some amount to them.
+The next aspect of the dataset we are looking at is how much each borrower owes to the IDA. To find this out, I entered the query below and got a table showing all borrowers and the amount they owe to the IDA. 
 ![SQL](images/returnborrowerida.png)
+Looking at the output, there are more borrowers that owe 0 to the IDA than there are those that owe some amount to them.
 ![SQL](images/query2.png)
 
-#### c) Show us all transactions from Nicaragua
-We want to see transactions from Nicaragua only, so we input this query. Looking at the query output, we can see that Nicaragua does a good job at repaying their loans. A majority of their credit status is fully repaid, or partially repaid. This stability is further reflected in the service charge rate staying 0.75 across all of their transactions with the IDA.
+#### c) How many Total Transactions from Nicaragua?
+We want to see transactions from Nicaragua only, so we input this query. 
 ![SQL](images/AllNicaragua.png)
+Looking at the query output, we can see that Nicaragua does a good job at repaying their loans. A majority of their credit status is fully repaid, or partially repaid. This stability is further reflected in the service charge rate staying 0.75 across all of their transactions with the IDA.
 ![SQL](images/query3.png)
 
-#### d) How many Total Transactions
-The total amount of transactions can be found from the Query below. The output is 1,443,906 transactions, showing a lot of volume between countries and the World Bank.
+#### d) How many Total Transactions are there?
+The total amount of transactions can be found from the Query below.
 ![SQL](images/totaltransactions.png)
+The output is 1,443,906 transactions, showing a lot of volume between countries and the World Bank.
 ![SQL](images/query4.png)
 
 #### e) How many Total transactions Per Country?
-The total transactions per country is found by the query below. I ordered the output with the phrase "Order By" and made sure it starts from the countries that have the most transactions with the phrase "Desc". From the output we can see South Asia represented heavily, with India, Bangladesh and Pakistan having the top 3 most transactions with the IDA. Africa is well represented too, with the remaining countries in the top 10 coming from Africa. 
+The total transactions per country is found by the query below. I ordered the output with the phrase "Order By" and made sure it starts from the countries that have the most transactions with the phrase "Desc". 
 ![SQL](images/query7sql.png)
+From the output we can see South Asia represented heavily, with India, Bangladesh and Pakistan having the top 3 most transactions with the IDA. Africa is well represented too, with the remaining countries in the top 10 coming from Africa. 
 ![SQL](images/query7.png)
 
 #### f) What is the Max owed to the IDA?
-The max amount owed to the IDA can be found by the query below. The output shows us that the most owed is $4,800,000,000.
+The max amount owed to the IDA can be found by the query below. 
 ![SQL](images/maxowedtoIDA.png)
+The output shows us that the most owed is $4,800,000,000.
 ![SQL](images/query5.png)
 
 #### g) Who has the most loans?
-The country with the most loans is India with $3,878,789,578,329.68, followed by Bangladesh and Pakistan. This tracks with their high volume of transactions that we learned of previously.
+Similar to the transactions per country query, we muse order the sum owed to the IDA by highest to lowest. 
 ![SQL](images/mostloans.png)
+The query output shows that the country with the most loans is India with $3,878,789,578,329.68, followed by Bangladesh and Pakistan. This tracks with their high volume of transactions that we learned of previously.
 ![SQL](images/query6.png)
+
 ### Conclusion
+Examining the loan activity of several different countries provides interesting results, such as a signal of how well they can repay their loans and the trend of countries from Africa and South Asia making up the highest volume transactions with the IDA. As always there is more that can be learned from these trends, such as looking into the economy of each country and examining how IDA loans contribute to it.
 
 ### Call to Action
 If you were interested in discussing the dataset further or have feedback on the analysis, feel free to message me on [LinkedIn!](https://www.linkedin.com/in/andhyalvarez/)
