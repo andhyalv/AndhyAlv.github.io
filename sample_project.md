@@ -16,4 +16,43 @@ print('this is the python code I used to solve this problem')
 
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
+# Title
+![IMG]()
+
+### Introduction
+
+
+### What will you learn
+a)
+
+b)
+
+c)
+
+d)
+
+e) 
+
+### Dataset and tools
+
+### Data Analysis
+
+#### a) 
+#### b) 
+#### c) 
+#### d)
+#### e)
+#### f)
+#### g)
+
+### Conclusion
+
+### Call to Action
+If you were interested in discussing the dataset further or have feedback on the analysis, feel free to message me on [LinkedIn!](https://www.linkedin.com/in/andhyalvarez/)
+
+
+
+
+
+
 
