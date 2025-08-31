@@ -43,6 +43,9 @@ e)
 #### d) Provide a list of all patients who had an emergency but left the hospital faster than the average.
 #### e)Research needs a list of all patient numbers who are African-America or have a "Up" to metformin
 #### f) Our health care data analyst boss wants to know what the distribution of time spent in the hospital looks like. 
+The distribution of time spent in the hospital is displayed by this query.
+
+The output is a Histogram.
 
 They're also curious to know if the majority stay less than 7 days. Once patients stay over 7 days, the hospital wants to ensure these patients are very acute.
 #### g)
