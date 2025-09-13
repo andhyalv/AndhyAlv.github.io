@@ -1,26 +1,8 @@
-im ## This can be a template for an internal prject
-
-**Project description:** You can use this template to create projects in the future. Simply duplicate the page and change the text and images. 
-
-Be sure to follow *The Interesting Project Template* as shown in [**The Data Science Project Studio**](https://www.datacareerjumpstart.com/products/the-data-science-project-studio/categories/2150357707/posts/2158441592). 
-
-### 1. You can have sections and text.
-
-Just like this. And you can even add internal coding blocks
-
-```python
-print('this is the python code I used to solve this problem')
-```
-
-### 2. You can add any images you'd like. 
-
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
-# Title
-![IMG]()
+# Healthcare Investigation
+![IMG](images/hospital.jpg "banner")
 
 ### Introduction
-There are countless relationships to be discovered from Healthcare data. The relationships found in this data is important in understanding the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved.
+There are countless relationships to be discovered from Healthcare data. The relationships found in this data is important in understanding the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
 
 ### What will you learn from the data of this specific Hospital
 a) In terms of the average number of lab procedures, all races are treated equally.
