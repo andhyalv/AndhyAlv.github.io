@@ -84,6 +84,7 @@ and avg_procedures > 2.5
 order by avg_procedures DESC;
 ```
 The output is the following table.
+
 ![ListofMed](images/ListofProceduresQuery.png "Output")
 
 From this output, we can see that (Describe relationships)
