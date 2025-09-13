@@ -2,7 +2,7 @@
 ![IMG](images/hospital.jpg "banner")
 
 ### Introduction
-There are countless relationships to be discovered from Healthcare data. The relationships found in this data is important in understanding the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
+There are countless relationships to be discovered from Healthcare data. The relationships found in these datasets are important in understanding the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
 
 ### What will you learn from the data of this specific Hospital
 a) In terms of the average number of lab procedures, all races are treated equally.
