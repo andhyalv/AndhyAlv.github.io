@@ -20,6 +20,9 @@ f) The distribution of time spent in the hospital.
 g) A list of the top 3 medications ranked per age group 
 
 ### Dataset and tools
+The dataset could be found here: https://www.kaggle.com/code/iabhishekofficial/prediction-on-hospital-readmission/data?select=diabetic_data.csv
+
+I used MySQL Workbench to create queries and output tables.
 
 ### Data Analysis
 
