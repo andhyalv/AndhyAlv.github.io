@@ -83,9 +83,9 @@ having count > 50
 and avg_procedures > 2.5
 order by avg_procedures DESC;
 ```
-
-The output is the following table:
+The output is the following table.
 ![ListofMed](images/ListofProceduresQuery.png "Output")
+
 From this output, we can see that (Describe relationships)
 
 #### d) Provide a list of all patients who had an emergency but left the hospital faster than the average.
