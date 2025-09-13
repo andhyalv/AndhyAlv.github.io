@@ -84,14 +84,14 @@ OUTPUT.
 From this output, we can see that (Describe relationships)
 
 #### d) Provide a list of all patients who had an emergency but left the hospital faster than the average.
-```
+```SQL
 WITH avg_time AS (
 	SELECT AVG(time_in_hospital) 
 	FROM health
 	) 
 SELECT * FROM patient.health 
-WHERE admission_type_id = 1 
-AND time_in_hospital < (SELECT * FROM avg_time);
+	WHERE admission_type_id = 1 
+	AND time_in_hospital < (SELECT * FROM avg_time);
 ```
 #### e) Research needs a list of all patient numbers who are African-America or have a "Up" to metformin
 ```SQL
