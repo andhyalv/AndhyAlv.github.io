@@ -11,7 +11,7 @@ b) The average time spent in the hospital has a correlation with the number of p
 
 c) The most common procedures are Cardiology and Radiology visits, along with Surgery of the Thoracic and Vascular systems.
 
-d) The amount of patients that left the hospital faster than average after an emergency.
+d) A list of patients that left the hospital faster than average after an emergency.
 
 e) The number of patients who are African-American or have an "Up" to metformin.
 
