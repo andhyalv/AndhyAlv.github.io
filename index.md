@@ -3,6 +3,11 @@
 ---
 
 ### Learn About My Projects
+### [Healthcare Patient Investigation](/Healthcare)
+![Healthcare](images/hospital.jpg "hospital")
+
+---
+
 ### [Massachusetts Education Performance Visualized in Tableau](/Massachusetts)
 <img src="https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/05/bostonlatinfb.jpg"/>
 What can we learn from the performance of schools in the Massachusetts Education System?
