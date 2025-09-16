@@ -23,7 +23,7 @@ Analysis of loans and spending between countries and the World Bank
 
 ---
 
-#### [DoorDash Member Sales Analysis]()
+#### [DoorDash Member Sales Analysis]("https://www.linkedin.com/pulse/doordash-member-purchasing-trends-andhy-alvarez-ffzlc/?trackingId=yuK1PVM4T3RovncPi8kQew%3D%3D")
 [<img src="https://media.licdn.com/dms/image/v2/D5612AQHDfadlZtTN9Q/article-cover_image-shrink_720_1280/B56ZfIM6WYHUAM-/0/1751410523511?e=1758758400&v=beta&t=4o7NcNbAZDQm9PsFWZpFDcFcE9rly1QOVyLI4jitj5E"/>](https://www.linkedin.com/pulse/doordash-member-purchasing-trends-andhy-alvarez-ffzlc/?trackingId=yuK1PVM4T3RovncPi8kQew%3D%3D)
 What are the latest spending trends on Doordash?
 
