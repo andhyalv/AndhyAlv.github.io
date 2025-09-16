@@ -2,7 +2,7 @@
 ![IMG](images/hospital.jpg "banner")
 
 ### Introduction
-There are countless relationships to be discovered from Healthcare data. The relationships found in these datasets are important in understanding the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
+I received a a large dataset from a hospital outlining patient information and many other variabels. I believe it is worth looking deeper in the dataset to understand the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
 
 ### What will you learn from the data of this specific Hospital
 a) In terms of the average number of lab procedures, all races are treated equally.
@@ -38,6 +38,7 @@ from health as h
     order by avg(h.num_lab_procedures) DESC;
 ```
 The following output shows that the hospital is not treating races differently, as each race has nearly the same average number of lab procedures.
+
 ![race](images/RaceQuery.png "output")
 
 #### b) What is the relationship between the number of lab proceudres and time spent in the hospital? 
@@ -58,6 +59,7 @@ group by procedure_frequency
 order by avg_time desc;
 ```
 The output below confirms an intuitive understanding that, the larger number of lab procedures that a patient undergoes, the higher time spent in the hospital on average.
+
 ![procedures](images/averagetimeprocedurefrequency.png "output")
 
 #### c) Provide a list of medical specialties that have an average number of procedure count above 2.5 with the total procedure count above 50.
@@ -89,6 +91,7 @@ SELECT * FROM patient.health
 	AND time_in_hospital < (SELECT * FROM avg_time);
 ```
 The output will be a list of patients who were admitted as an emergency and left the hospital faster than average.
+
 ![Emergency](images/HospitalSuccess.png "Output")
 
 #### e) Research needs a list of all patient numbers who are African-America or have a "Up" to metformin
