@@ -26,7 +26,7 @@ I used MySQL Workbench to create queries and output tables.
 
 ### Data Analysis
 
-#### a) The nurse director needs to know if we are subconsciously treating races differently. Show the average number of lab procedures broken down by race. 
+#### a) Is the hospital subconsciouly treating races differently?
 In order to figure out if the hospital is subconsciously treating races differently, we looked at the average number of lab procedures by race. We used the query below
 ```SQL
 select 
@@ -37,8 +37,11 @@ from health as h
     group by d.race
     order by avg(h.num_lab_procedures) DESC;
 ```
+The following output shows that the hospital is not treating races differently, as each race has nearly the same average number of lab procedures.
 ![race](images/RaceQuery.png "output")
-#### b) Your boss has asked you to explore the relationship between number of lab procedures and time spent in the hospital. Specifically, they asked for a few, average, and many procedure group.
+
+#### b) What is the relationship between the number of lab proceudres and time spent in the hospital? 
+In order to examine the relationship clearly, I want to group the output into buckets of "few", "average", and "many" to show the diffrences in time spent between groups with different amounts of lab procedures. The following query executes this idea.
 ```SQL
 select
 	avg(time_in_hospital) as avg_time,
@@ -54,10 +57,11 @@ from health
 group by procedure_frequency
 order by avg_time desc;
 ```
+The output below confirms an intuitive understanding that, the larger number of lab procedures that a patient undergoes, the higher time spent in the hospital on average.
 ![procedures](images/averagetimeprocedurefrequency.png "output")
 
-#### c) Give the hospital director a list of the medical specialties that have an average number of procedure count above 2.5 with the total procedure count above 50.
-The hospital director is looking for a list of medical specialties with an average number of procedure count above 2.5 and with a total procedure count above 50. In order to find this we use the query below.
+#### c) Provide a list of medical specialties that have an average number of procedure count above 2.5 with the total procedure count above 50.
+The task is to find the most significantly reocurring procedures for medical specialities, while handling exceptions for cases that don't have a large sample size. The query below solves this.
 ```SQL
 Select distinct medical_specialty,
 	ROUND(AVG(num_procedures), 1) as avg_procedures, -- Gets the average first, than rounds it up to 1 decimal place in acolumn called avg_procedures.
@@ -68,13 +72,13 @@ having count > 50
 and avg_procedures > 2.5
 order by avg_procedures DESC;
 ```
-The output is the following table.
+The output below shows us that radiology, cardiology, and surgery for cardiovascular and thoarcic systems are the most significantly reocurring procedures based on medical specialties.
 
 ![ListofMed](images/ListofProceduresQuery.png "Output")
 
-From this output, we can see that (Describe relationships)
+#### d) Provide a list of patients who were admitted in an emergency and left the hospital faster than average.
+In order to provide the list of patients, we had to find what an emergency is labeled as. Upon looking at the data, emergencies are classified as admission_type_id = 1. From there, we need to establish an average time stayed in the hospital. This is created from the WITH clause, setting the avg_time variable as the average time stayed in the hospital. Then we include a condition to be less than the average time alongside being equivalent to the emergency label. The query below demonstrates this.
 
-#### d) Provide a list of all patients who had an emergency but left the hospital faster than the average.
 ```SQL
 WITH avg_time AS (
 	SELECT AVG(time_in_hospital) 
@@ -84,17 +88,21 @@ SELECT * FROM patient.health
 	WHERE admission_type_id = 1 
 	AND time_in_hospital < (SELECT * FROM avg_time);
 ```
+The output will be a list of patients who were admitted as an emergency and left the hospital faster than average.
 ![Emergency](images/HospitalSuccess.png "Output")
 
 #### e) Research needs a list of all patient numbers who are African-America or have a "Up" to metformin
+In order to find the list, we used the query below. 
 ```SQL
 SELECT patient_nbr FROM patient.demographics WHERE race = 'AfricanAmerican'
 UNION
 SELECT patient_nbr FROM patient.health
 WHERE metformin = 'Up';
 ```
+The main criteria to select from are if the patient is African American, alongside if their Metformin column is equal to "Up". Both columns were found on different tables, the demogrpahics and health tables. As a result, we have to use the Union clause with the common identifier being patient number, to output a list of patients that match both criteria.
 ![AA](images/AfricanUPMetformin.png "Output")
-#### f) Our health care data analyst boss wants to know what the distribution of time spent in the hospital looks like. 
+
+#### f) What is the distribution of time spent in the hospital?
 The distribution of time spent in the hospital is displayed by this query.
 ```SQL
 Select round(time_in_hospital, 1) as bucket 
@@ -102,11 +110,12 @@ Select round(time_in_hospital, 1) as bucket
 , rpad('', count(*)/100, "*") as bar
 ```
 
-The output is a Histogram.
+The output is a Histogram. The result shows that most patients fall in the buckets of 1-4 for time spent in the hospital. Longer stays happen less often.
 ![Histogram](images/HistogramQuery.png "Output")
 
-The top 3 medications ranked, per age group.
-#### g)
+
+#### g) What are the top 3 medications ranked per age group.
+In order to determine the top 3 medications, and rank them per age group, we used the following query.
 ```SQL
 WITH long_health_cte AS (
 SELECT patient_nbr, 'metformin' AS medication, metformin AS med_usage FROM patient.health
@@ -126,6 +135,8 @@ WHERE med_usage NOT IN ('No') -- Excludes any instances where medicine is not us
 GROUP BY medication, age -- Allows for similar medication, followed by similar ages to be combined into the same bucket for counting.
 ORDER BY age, medication_rank; -- Orders by the age, then the medication rank. Default is from smallest to largest.
 ```
+The result is the following list.
+![rank](images/rankoutput.png "output")
 
 ### Conclusion
 
