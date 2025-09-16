@@ -17,6 +17,7 @@ What can we learn from the performance of schools in the Massachusetts Education
 ### [SQL Bank Project](/bank)
 ![World Bank](images/worldbank.png "World Bank Image")
 Analysis of loans and spending between countries and the World Bank
+
 ---
 
 #### [DoorDash Member Sales Analysis]()
