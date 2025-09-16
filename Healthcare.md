@@ -100,6 +100,7 @@ SELECT patient_nbr FROM patient.health
 WHERE metformin = 'Up';
 ```
 The main criteria to select from are if the patient is African American, alongside if their Metformin column is equal to "Up". Both columns were found on different tables, the demogrpahics and health tables. As a result, we have to use the Union clause with the common identifier being patient number, to output a list of patients that match both criteria.
+
 ![AA](images/AfricanUPMetformin.png "Output")
 
 #### f) What is the distribution of time spent in the hospital?
