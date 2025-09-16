@@ -136,6 +136,7 @@ GROUP BY medication, age -- Allows for similar medication, followed by similar a
 ORDER BY age, medication_rank; -- Orders by the age, then the medication rank. Default is from smallest to largest.
 ```
 The result is the following list.
+
 ![rank](images/rankoutput.png "output")
 
 ### Conclusion
