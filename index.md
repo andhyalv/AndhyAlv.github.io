@@ -5,7 +5,9 @@
 ### Learn About My Projects
 ### [Healthcare Patient Investigation](/Healthcare)
 ![Healthcare](images/hospital.jpg "hospital")
+
 Understanding the many relationships that can be found in Healthcare data.
+
 ---
 
 ### [Massachusetts Education Performance Visualized in Tableau](/Massachusetts)
