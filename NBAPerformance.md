@@ -2,7 +2,7 @@
 ![IMG](images/NBA.jpg "NBA Logo")
 
 ### Introduction
-After the 2024-2025 NBA Season concluded, I thought that it would be interesting to take a deeper look at player and team performance throughout the season. Understanding the trends of player and team performance will be helpful for teams to learn what is important to winning games. Through the analysis, I aim to provide key insights into difference makers in the NBA.
+After the 2024-2025 National Basketball Association season concluded, I thought that it would be interesting to take a deeper look at player and team performance throughout the season. Understanding the trends of player and team performance will be helpful for teams to learn what is important to winning games. Through the analysis, I aim to provide key insights into difference makers in the NBA. Positions in the NBA can be broken down into 5 roles at the most basic level. Point Gaurds (PG), Shooting Gaurds (SG), Small Forwards (SF), Power Forwards (PF) and Centers (C). These terms will be referred to in the analysis. 
 
 ### What will you learn
 a) The 3 point percentage per position among NBA teams.
@@ -21,7 +21,7 @@ The full visualization can be found [here on Tableau](https://public.tableau.com
 ### Data Analysis
 
 #### a) 3pt % Among NBA Teams, broken down by position.
-In order to create the visual in Tableau, I entered position field on the x-axis and team field on the y-axis. With this dataset, a player could be a part of multiple teams, which has its own label. Therefore, I had to filter out that label. Another issue that arised is with taking the % at face value. The percentage could be skewed by a small sample size for a particular position. To account for this, I used a formula that takes the sum of the 3 point shots made and divides it by the sum of the 3 point shots attempted for the team overall. This way it does not skew the results if a small sample size happened to have a very high percentage.
+In order to create the visual in Tableau, I entered the position field on the x-axis and the team field on the y-axis. With this dataset, a player could be a part of multiple teams, which has its own label. Therefore, I had to filter out that label. Another issue that arised is with taking the % at face value. The percentage could be skewed by a small sample size for a particular position. To account for this, I used a formula that takes the sum of the 3 point shots made and divides it by the sum of the 3 point shots attempted for the team overall. This way it does not skew the results if a small sample size happened to have a very high percentage.
 
 #### b) The relationship between player scoring, assists and total rebounds.
 
