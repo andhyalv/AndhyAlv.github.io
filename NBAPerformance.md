@@ -21,7 +21,7 @@ The full visualization can be found [here on Tableau](https://public.tableau.com
 ### Data Analysis
 
 #### a) 3pt % Among NBA Teams, broken down by position.
-In order to create the visual in Tableau, I entered the position field on the x-axis and the team field on the y-axis. With this dataset, a player could be a part of multiple teams, which has its own label. Therefore, I had to filter out that label. Another issue that arised is with taking the % at face value. The percentage could be skewed by a small sample size for a particular position. To account for this, I used a formula that takes the sum of the 3 point shots made and divides it by the sum of the 3 point shots attempted for the team overall. This way it does not skew the results if a small sample size happened to have a very high percentage.
+In order to create the visual in Tableau, I entered the position field on the x-axis and the team field on the y-axis. I learned that with this dataset, a player could be a part of multiple teams, which has its own label. Players getting multiple labels for their team creates the issue of double dipping, or their stats being counted twice. Therefore, I had to filter out the multi team label. Another issue that arised is with taking the % at face value. Player shot % measured as shots attempted vs made within their own position class can be skewed by haing too small of a sample size. To account for this, I used a formula that takes the sum of the 3 point shots made for a specific player, and divides it by the sum of the 3 point shots attempted for the team.
 
 #### b) The relationship between player scoring, assists and total rebounds.
 
