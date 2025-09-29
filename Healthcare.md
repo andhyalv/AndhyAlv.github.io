@@ -2,7 +2,7 @@
 ![IMG](images/hospital.jpg "banner")
 
 ### Introduction
-I received a a large dataset from a hospital outlining patient information and many other variables. Investigeting the dataset deeper would be worthwhile to understand the efficacy of procedure and medications for the patients. In this project I aim to understand several relationships that can be found in Healthcare data. To demonstrate relationships, I will provide SQL queries and their output.
+I received a a large dataset from a hospital outlining patient information and many other variables. Investigeting the dataset deeper would be worthwhile to understand the efficacy of procedures and medications for the patients. In this project I aim to understand several relationships that can be found in Healthcare data. To demonstrate these relationships, I will provide SQL queries and their output.
 
 ### What will you learn from the analysis.
 a) All races are treated equally in terms of the average number of procedures.
@@ -74,12 +74,12 @@ having count > 50
 and avg_procedures > 2.5
 order by avg_procedures DESC;
 ```
-The output below shows us that radiology, cardiology, and surgery for cardiovascular and thoarcic systems are the most significantly reocurring procedures based on medical specialties.
+The output shows us that radiology, cardiology, and surgery for cardiovascular and thoarcic systems are the most significantly reocurring procedures based on medical specialties.
 
 ![ListofMed](images/ListofProceduresQuery.png "Output")
 
 #### d) Provide a list of patients who were admitted in an emergency and left the hospital faster than average.
-In order to provide the list of patients, we had to find what an emergency is labeled as. Upon looking at the data, emergencies are classified as admission_type_id = 1. From there, we need to establish an average time stayed in the hospital. This is created from the WITH clause, setting the avg_time variable as the average time stayed in the hospital. Then we include a condition to be less than the average time alongside being equivalent to the emergency label. The query below demonstrates this.
+In order to provide the list of patients, we had to find the label for an emergency. Upon looking at the data, emergencies are classified as admission_type_id = 1. From there, we need to establish an average time stayed in the hospital. This is created from the WITH clause, setting the avg_time variable as the average time stayed in the hospital. Then we include a condition to be less than the average time alongside being equivalent to the emergency label. The query below demonstrates this.
 
 ```SQL
 WITH avg_time AS (
@@ -90,24 +90,24 @@ SELECT * FROM patient.health
 	WHERE admission_type_id = 1 
 	AND time_in_hospital < (SELECT * FROM avg_time);
 ```
-The output will be a list of patients who were admitted as an emergency and left the hospital faster than average.
+The output is a table of patients who were admitted as an emergency and left the hospital faster than average.
 
 ![Emergency](images/HospitalSuccess.png "Output")
 
 #### e) Research needs a list of all patient numbers who are African-America or have a "Up" to metformin
-In order to find the list, we used the query below. 
+To generate the desired list, we used the query below. 
 ```SQL
 SELECT patient_nbr FROM patient.demographics WHERE race = 'AfricanAmerican'
 UNION
 SELECT patient_nbr FROM patient.health
 WHERE metformin = 'Up';
 ```
-The main criteria to select from are if the patient is African American, alongside if their Metformin column is equal to "Up". Both columns were found on different tables, the demogrpahics and health tables. As a result, we have to use the Union clause with the common identifier being patient number, to output a list of patients that match both criteria.
+The main criteria to distinguish between patients are if their demographic is African American, along with their Metformin column being equal to "Up". Both columns were found on different tables, the demogrpahics and health tables. Therefore, we have to use the Union clause with the common identifier being patient number, to create a new table wirh patients that match both criteria.
 
 ![AA](images/AfricanUPMetformin.png "Output")
 
 #### f) What is the distribution of time spent in the hospital?
-The distribution of time spent in the hospital is displayed by this query.
+The distribution of time spent in the hospital can be displayed by this query.
 ```SQL
 Select round(time_in_hospital, 1) as bucket 
 , count(*) as count 
@@ -119,7 +119,7 @@ The output is a Histogram. The result shows that most patients fall in the bucke
 
 
 #### g) What are the top 3 medications ranked per age group.
-In order to determine the top 3 medications, and rank them per age group, we used the following query.
+We are given the top 3 most common medications. our task is to rank them per age group, so we use the following query.
 ```SQL
 WITH long_health_cte AS (
 SELECT patient_nbr, 'metformin' AS medication, metformin AS med_usage FROM patient.health
