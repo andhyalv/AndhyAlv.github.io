@@ -20,14 +20,14 @@ f) The distribution of time spent in the hospital.
 g) A list of the top 3 medications ranked per age group.
 
 ### Dataset and tools
-The dataset could be found here: [Kaggle: Hospital dataset](https://www.kaggle.com/code/iabhishekofficial/prediction-on-hospital-readmission/data?select=diabetic_data.csv)
+The dataset could be found here: [Kaggle: Hospital Dataset](https://www.kaggle.com/code/iabhishekofficial/prediction-on-hospital-readmission/data?select=diabetic_data.csv)
 
-I used MySQL Workbench to create queries and output tables.
+MySQL Workbench to create queries and output tables.
 
 ### Data Analysis
 
 #### a) Is the hospital subconsciouly treating races differently?
-In order to figure out if the hospital is subconsciously treating races differently, we looked at the average number of lab procedures by race. We used the query below
+In order to figure out if the hospital is subconsciously treating races differently, we looked at the average number of lab procedures by race. The query below provides our desired output.
 ```SQL
 select 
 	d.race, 
