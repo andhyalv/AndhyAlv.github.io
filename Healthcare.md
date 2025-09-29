@@ -144,7 +144,7 @@ The result is the following list.
 ![rank](images/rankoutput.png "output")
 
 ### Conclusion
-
+This analysis provides insight into patterns of hospital utilization, procedures, and medication use across a diverse patient population. On average, patients of different racial backgrounds received a comparable number of laboratory procedures, suggesting equity in procedural allocation. At the same time, a clear correlation emerged between the length of hospitalization and the number of procedures performed, reflecting that more complicated procedures require more time in the hospital. The most common procedures were concentrated in cardiology, radiology, and thoracic or vascular surgery, highlighting the significance of cardiovascular and diagnostic care. While most patients followed the average trajectory for discharge, a subset of individuals were released more rapidly after emergency admissions, showing the strong level of care in crisis situations. Demographic analysis also highlighted a substantial representation of African-American patients that were prescribed metformin with an “Up” adjustment, showing an important intersection of race and diabetes management. Finally, medication use varied significantly by age, with each age group relying on metformin, insulin and glipozide. Together, these findings illustrate how treatment patterns, demographics, and pharmacology interact to shape hospital experiences and outcomes.
 ### Call to Action
 If you were interested in discussing the dataset further or have feedback on the analysis, feel free to message me on [LinkedIn!](https://www.linkedin.com/in/andhyalvarez/)
 
