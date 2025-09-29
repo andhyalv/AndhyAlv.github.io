@@ -2,12 +2,12 @@
 ![IMG](images/hospital.jpg "banner")
 
 ### Introduction
-I received a a large dataset from a hospital outlining patient information and many other variabels. I believe it is worth looking deeper in the dataset to understand the efficacy of procedures, medications and the fair treatment of all patients. In this project I aim to understand several of these relationships that can be found in Healthcare data, with the goal of learning what is done well and what could be improved. I will provide the SQL queries and images of the outputted table. Some queries will have comments to clarify what each aspect of the query does.
+I received a a large dataset from a hospital outlining patient information and many other variables. Investigeting the dataset deeper would be worthwhile to understand the efficacy of procedure and medications for the patients. In this project I aim to understand several relationships that can be found in Healthcare data. To demonstrate relationships, I will provide SQL queries and their output.
 
-### What will you learn from the data of this specific Hospital
-a) In terms of the average number of lab procedures, all races are treated equally.
+### What will you learn from the analysis.
+a) All races are treated equally in terms of the average number of procedures.
 
-b) The average time spent in the hospital has a correlation with the number of procedures received.
+b) The average time spent in the hospital has a positive correlation with the number of procedures received.
 
 c) The most common procedures are Cardiology and Radiology visits, along with Surgery of the Thoracic and Vascular systems.
 
@@ -17,7 +17,7 @@ e) The number of patients who are African-American or have an "Up" to metformin.
 
 f) The distribution of time spent in the hospital.
 
-g) A list of the top 3 medications ranked per age group 
+g) A list of the top 3 medications ranked per age group.
 
 ### Dataset and tools
 The dataset could be found here: https://www.kaggle.com/code/iabhishekofficial/prediction-on-hospital-readmission/data?select=diabetic_data.csv
