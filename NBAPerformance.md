@@ -22,15 +22,19 @@ The full visualization can be found [here on Tableau](https://public.tableau.com
 
 #### a) 3pt % Among NBA Teams, broken down by position.
 In order to create the visual in Tableau, I entered the position field on the x-axis and the team field on the y-axis. I learned that with this dataset, a player could be a part of multiple teams, which has its own label. Players getting multiple labels for their team creates the issue of double dipping, or their stats being counted twice. Therefore, I had to filter out the multi team label. Another issue that arised is with taking the % at face value. Player shot % measured as shots attempted vs made within their own position class can be skewed by haing too small of a sample size. To account for this, I used a formula that takes the sum of the 3 point shots made for a specific player, and divides it by the sum of the 3 point shots attempted for the team.
+Picture of the table.
 
 #### b) The relationship between player scoring, assists and total rebounds.
-point gaurds tend to be the higher scoring players, along with more assists. This tracks with the intuition that point gaurds tend to have the ball more throughout the gae, and are responsible for distributikgthe basketball to their team.
-centers and power forwarda tend to have the larger bubbles, indicating that they get more rebounds. this tracks with the intuition that larger sized players end up with more rebounds.
-nikola jokic is a larger outlier from these trends. he is one of the leading plywrs in points, assists and total rebounds as a center. 
+In order to examine the relationship, I charted points on the x-axis, and assists on the y-axis. To showcase the full relationship by including rebounds, I input the rebound data as a function of plot point size. So, the larger the point, the more rebounds a player grabbed. Player positions are differentiated based on color of the bubble.
+
+The chart tells us that Point gaurds tend to be the higher scoring players, along with more assists. This tracks with the intuition that point gaurds tend to have the ball more throughout the game, and are responsible for distributing the basketball to their teammates.
+Centers and power forwards tend to have the larger bubbles, indicating that they get more rebounds. This also tracks with the intuition that larger sized players end up with more rebounds.
+Nikola Jokic is a significant outlier from these trends, as he is a leading player in points, assists and rebounds as a center.  
 
 #### c) The distribution of player age among all teams in the NBA.
-
-#### d) The distribution assists per position and player.
+To visualize the distribution of player age in the NBA, we used a stacked bar chart to compare age groups. The chart shows us the distribution of player scoring based on the age group of players on a team. I kinda hate stacked bar charts. Maybe we can visualize this betterrrrr.
+#### d) The distribution of assists per position and player.
+In order to visualize the distribution of assists per position and player, we used a tree map. Player positions are distinguished by color, and the size of each box represents the number of assists a player had. Again maybe we can use a different visualization. The treemap shows that point guards hold the highest portion of assists among players, followed by shooting gaurds. 
 
 ### Conclusion
 
