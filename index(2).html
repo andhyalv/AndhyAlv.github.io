@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Event Producer & Operations Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:        #12141c;
+    --panel:      #1b1e29;
+    --panel-2:    #21242f;
+    --line:       #2c303e;
+    --text:       #edeef2;
+    --text-dim:   #8a8fa3;
+    --cyan:       #4fe0d4;
+    --magenta:    #ff3e7f;
+    --radius:     10px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:1.05;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  section{ padding:96px 0; }
+
+  /* ============ NAV ============ */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,20,28,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    height:64px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-brand{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size:20px; text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .nav-brand span{ color:var(--cyan); }
+  .nav-links{ display:flex; gap:28px; list-style:none; }
+  .nav-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-dim); text-decoration:none;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{ color:var(--cyan); }
+  .nav-links a:focus-visible{ outline:2px solid var(--cyan); outline-offset:4px; }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:120px 0 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--magenta);
+    margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow::before{
+    content:''; width:8px; height:8px; border-radius:50%;
+    background:var(--magenta);
+    box-shadow:0 0 0 4px rgba(255,62,127,0.15);
+  }
+  .hero h1{
+    font-size:clamp(44px, 8vw, 92px);
+    font-weight:800;
+    max-width:900px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--cyan);
+  }
+  .hero p.lede{
+    font-size:19px;
+    color:var(--text-dim);
+    max-width:560px;
+    margin-top:24px;
+  }
+
+  /* ---- scoreboard ticker (signature element) ---- */
+  .ticker{
+    margin-top:64px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+  }
+  .ticker-inner{
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .ticker-inner::-webkit-scrollbar{ display:none; }
+  .ticker-item{
+    flex:1 1 0;
+    min-width:150px;
+    padding:24px 28px;
+    border-right:1px solid var(--line);
+  }
+  .ticker-item:last-child{ border-right:none; }
+  .ticker-value{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:30px;
+    color:var(--cyan);
+  }
+  .ticker-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  /* ============ SECTION LABELS ============ */
+  .section-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin-bottom:12px;
+  }
+  .section-title{
+    font-size:clamp(32px, 5vw, 48px);
+    font-weight:700;
+    margin-bottom:48px;
+  }
+
+  /* ============ EVENT / CASE STUDY PANELS ============ */
+  .event{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--panel);
+    overflow:hidden;
+    margin-bottom:40px;
+    opacity:0; transform:translateY(24px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .event.is-visible{ opacity:1; transform:translateY(0); }
+
+  .event-header{
+    padding:32px 36px;
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;
+  }
+  .event-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--magenta);
+    letter-spacing:0.1em;
+    margin-bottom:8px;
+    display:block;
+  }
+  .event-header h3{
+    font-size:36px;
+    font-weight:700;
+  }
+  .event-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--text-dim);
+    text-align:right;
+  }
+  .event-meta div + div{ margin-top:2px; }
+
+  .event-photo{
+    aspect-ratio:16/7;
+    background:
+      repeating-linear-gradient(45deg, var(--panel-2), var(--panel-2) 12px, var(--panel) 12px, var(--panel) 24px);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    border-bottom:1px solid var(--line);
+  }
+  .event-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .event-body{ padding:36px; }
+  .event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:28px;
+  }
+  .event-cat h4{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--cyan);
+    margin-bottom:10px;
+  }
+  .event-cat ul{
+    list-style:none;
+    font-size:14.5px;
+    color:var(--text-dim);
+  }
+  .event-cat li{
+    padding-left:14px;
+    position:relative;
+    margin-bottom:8px;
+  }
+  .event-cat li::before{
+    content:'›';
+    position:absolute; left:0; top:0;
+    color:var(--magenta);
+  }
+
+  /* ============ SKILLS ============ */
+  .skills-row{
+    display:flex; flex-wrap:wrap; gap:12px;
+  }
+  .skill-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--text-dim);
+    background:var(--panel);
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .skill-tag:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+  /* ============ TIMELINE ============ */
+  .timeline-item{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .timeline-item:last-child{ border-bottom:none; }
+  .timeline-date{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--cyan);
+  }
+  .timeline-role{ font-weight:600; font-size:16px; }
+  .timeline-org{ color:var(--text-dim); font-size:14px; margin-top:2px;}
+
+  /* ============ CONTACT / FOOTER ============ */
+  footer{
+    border-top:1px solid var(--line);
+    padding:64px 0 48px;
+  }
+  footer h2{
+    font-size:clamp(32px,5vw,44px);
+    margin-bottom:20px;
+  }
+  .contact-links{
+    display:flex; gap:24px; flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .contact-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    color:var(--text);
+    border-bottom:1px solid var(--cyan);
+    padding-bottom:2px;
+  }
+  .foot-note{
+    margin-top:48px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--text-dim);
+  }
+
+  @media (max-width:640px){
+    section{ padding:64px 0; }
+    .event-header{ flex-direction:column; align-items:flex-start; }
+    .event-meta{ text-align:left; }
+    .timeline-item{ grid-template-columns:1fr; gap:4px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .event{ transition:none; opacity:1; transform:none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">[Your Name] <span>//</span> Events</div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Live Event Production &amp; Operations</div>
+    <h1>Event production,<br><em>start to finish</em>.</h1>
+    <p class="lede">
+      I plan, produce, and execute live events end to end — vendor management, budgets,
+      broadcast production, and on-site operations — for productions with real audiences,
+      real budgets, and real deadlines.
+    </p>
+  </div>
+
+  <!-- signature scoreboard ticker -->
+  <div class="ticker">
+    <div class="wrap">
+      <div class="ticker-inner">
+        <div class="ticker-item">
+          <div class="ticker-value">2</div>
+          <div class="ticker-label">Flagship productions led</div>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-value">$10K+</div>
+          <div class="ticker-label">Budget owned end-to-end</div>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-value">4-day</div>
+          <div class="ticker-label">Longest production window</div>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-value">1,000+</div>
+          <div class="ticker-label">Match records logged</div>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-value">Licensed</div>
+          <div class="ticker-label">Official Nintendo event license</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ WORK / CASE STUDIES ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-eyebrow">Selected Work</div>
+    <h2 class="section-title">Two productions, start to finish.</h2>
+
+    <!-- EVENT 01 -->
+    <article class="event">
+      <div class="event-header">
+        <div>
+          <span class="event-tag">Event 01 // Esports Tournament</span>
+          <h3>Gridlock 2026</h3>
+        </div>
+        <div class="event-meta">
+          <div>OSNYC</div>
+          <div><!-- FILL IN: event date --></div>
+          <div><!-- FILL IN: attendance --> attendees</div>
+        </div>
+      </div>
+
+      <!-- Replace this block with <img src="assets/gridlock-2026-hero.jpg" alt="Gridlock 2026 event floor"> -->
+      <div class="event-photo">[ Drop hero photo here — assets/gridlock-2026-hero.jpg ]</div>
+
+      <div class="event-body">
+        <p style="color:var(--text-dim); margin-bottom:32px; max-width:760px;">
+          A Splatoon esports tournament with side events and community programming, run on a
+          $10,000 budget. I led execution across every functional area — production,
+          licensing, staffing, and marketing — as head of event execution.
+        </p>
+
+        <div class="event-grid">
+          <div class="event-cat">
+            <h4>Ownership &amp; Budget</h4>
+            <ul>
+              <li>Owned a $10K budget end-to-end across venue, broadcast, design, and staffing</li>
+              <li>Coordinated venue, broadcast, graphic design, volunteer, and photo/video teams into one cohesive event</li>
+              <li>Head of event execution — built staff schedules and assigned responsibilities</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Production &amp; Technical</h4>
+            <ul>
+              <li>Sourced AV equipment, audio mixers, and Switch 2 consoles within budget</li>
+              <li>Built an equipment labeling/inventory system to track location</li>
+              <li>Built a live digital scoreboard showing match status, station assignments, rosters, and scores</li>
+              <li>Adapted in real time to networking issues, venue coordination, and climate control</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Licensing &amp; Compliance</h4>
+            <ul>
+              <li>Submitted and secured an official event license from Nintendo</li>
+              <li>Met directly with Nintendo to confirm compliance with event guidelines</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Marketing &amp; Merch</h4>
+            <ul>
+              <li>Directed merch concept-to-delivery: shirts, posters, pins, light stands</li>
+              <li>Onboarded and briefed marketers on branding for pre- and day-of content</li>
+              <li>Surveyed attendees to select the event date</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Attendee Experience</h4>
+            <ul>
+              <li>Designed side events: fantasy brackets, captain's draft, bingo</li>
+              <li>Built check-in procedures and trained staff to run them</li>
+              <li>Sourced event badges and coordinated vendor floor space</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Content &amp; Data</h4>
+            <ul>
+              <li>Built team info packets for commentators from surveys and independent research</li>
+              <li>Captured and logged 1,000+ match screenshots for post-event trend reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- EVENT 02 -->
+    <article class="event">
+      <div class="event-header">
+        <div>
+          <span class="event-tag">Event 02 // Multi-Day Tournament</span>
+          <h3>Gridlock @ Collision 2025</h3>
+        </div>
+        <div class="event-meta">
+          <div>Meadowlands Exposition Center</div>
+          <div>3 event days + 1 setup day</div>
+          <div><!-- FILL IN: attendance --> attendees</div>
+        </div>
+      </div>
+
+      <!-- Replace this block with <img src="assets/collision-2025-hero.jpg" alt="Gridlock at Collision 2025"> -->
+      <div class="event-photo">[ Drop hero photo here — assets/collision-2025-hero.jpg ]</div>
+
+      <div class="event-body">
+        <p style="color:var(--text-dim); margin-bottom:32px; max-width:760px;">
+          Sole organizer of a 4-day Splatoon production inside a partner organization's
+          exposition space — full ownership of vendors, budget, broadcast, and logistics.
+        </p>
+
+        <div class="event-grid">
+          <div class="event-cat">
+            <h4>Full Event Ownership</h4>
+            <ul>
+              <li>Sole organizer — owned vendor communications, budget, and day-of logistics</li>
+              <li>Ran broadcast operations and tournament player communications on event day</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Space &amp; Partnerships</h4>
+            <ul>
+              <li>Negotiated and maintained the relationship with the host organization to secure event space</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Production</h4>
+            <ul>
+              <li>Ensured full AV coverage: monitors, consoles, power, tables/chairs, projectors, speakers for the streamed matches</li>
+              <li>Designed a seamless, decorative player experience across a 4-day footprint</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Community Expansion</h4>
+            <ul>
+              <li>Recruited collegiate Splatoon clubs for a collegiate showcase</li>
+              <li>Organized region-based exhibition matches as side content</li>
+            </ul>
+          </div>
+          <div class="event-cat">
+            <h4>Brand &amp; Design</h4>
+            <ul>
+              <li>Directed the signature event poster concept with a graphic artist</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-eyebrow">Toolkit</div>
+    <h2 class="section-title">What I bring to the room.</h2>
+    <div class="skills-row">
+      <span class="skill-tag">Budget Management</span>
+      <span class="skill-tag">Vendor Relations</span>
+      <span class="skill-tag">Run-of-Show Planning</span>
+      <span class="skill-tag">On-Site Execution</span>
+      <span class="skill-tag">Staff Scheduling</span>
+      <span class="skill-tag">Licensing &amp; Compliance</span>
+      <span class="skill-tag">Broadcast Coordination</span>
+      <span class="skill-tag">Merch Sourcing &amp; Fulfillment</span>
+      <span class="skill-tag">Google Sheets / Excel</span>
+      <span class="skill-tag">Attendee Data &amp; Surveys</span>
+      <span class="skill-tag">Real-Time Problem Solving</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE TIMELINE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">Timeline.</h2>
+
+    <div class="timeline-item">
+      <div class="timeline-date mono"><!-- FILL IN: dates --></div>
+      <div>
+        <div class="timeline-role">Founder &amp; Event Producer</div>
+        <div class="timeline-org">[Your Organization Name] — Gridlock 2026 &amp; Gridlock @ Collision 2025</div>
+      </div>
+    </div>
+    <!-- Add more roles here in the same block format -->
+
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's build something live.</h2>
+    <p style="color:var(--text-dim); max-width:480px;">
+      Open to events, hospitality, and experiential production roles.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">your.email@example.com</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/assets/resume.pdf" target="_blank">Resume (PDF)</a>
+    </div>
+    <div class="foot-note">© <span id="year"></span> [Your Name]. Built and coded by me.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal event panels on scroll
+  const events = document.querySelectorAll('.event');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  events.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
