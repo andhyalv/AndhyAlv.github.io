@@ -251,20 +251,25 @@
     text-align:right;
   }
   .event-meta div + div{ margin-top:2px; }
- 
+
   .event-photo{
-  aspect-ratio:16/7;
-  background:var(--panel-2); /* solid fill behind the letterboxing */
-  display:flex; align-items:center; justify-content:center;
-  color:var(--text-dim);
-  font-family:'JetBrains Mono', monospace;
-  font-size:13px;
-  border-bottom:1px solid var(--line);
+    aspect-ratio:16/7;
+    background:
+      repeating-linear-gradient(45deg, var(--panel-2), var(--panel-2) 12px, var(--panel) 12px, var(--panel) 24px);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    border-bottom:1px solid var(--line);
   }
-  .event-photo img{
-  width:100%; height:100%; object-fit:contain; display:block;
+  .event-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .event-body{ padding:36px; }
+  .event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:28px;
   }
-  
   .event-cat h4{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
