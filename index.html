@@ -253,8 +253,8 @@
   .event-meta div + div{ margin-top:2px; }
  
   .event-photo{
-  aspect-ratio:16/7;
-  max-height:420px;      /* stops it from getting absurdly tall */
+  aspect-ratio:16/9;
+  max-height:480px;
   background:var(--panel-2);
   display:flex; align-items:center; justify-content:center;
   color:var(--text-dim);
@@ -263,10 +263,7 @@
   border-bottom:1px solid var(--line);
   overflow:hidden;
 }
-.event-photo img{
-  width:100%; height:100%; object-fit:contain; display:block;
-}
-
+.event-photo img{ width:100%; height:100%; object-fit:contain; display:block; }
   .event-body{ padding:36px; }
   .event-grid{
     display:grid;
