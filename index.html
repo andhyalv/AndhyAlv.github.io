@@ -269,6 +269,82 @@
     object-position:center;
   }
 
+  /* ============ CAROUSEL ============ */
+  .carousel{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+  }
+  .carousel-track{
+    display:flex;
+    height:100%;
+    transition:transform .35s ease;
+  }
+  .carousel-track img{
+    height:100%;
+    object-fit:cover;
+    display:block;
+    cursor:zoom-in;
+  }
+  .carousel-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(18,20,28,0.6);
+    backdrop-filter:blur(4px);
+    color:var(--text);
+    font-size:20px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:border-color .2s ease, color .2s ease, background .2s ease;
+    z-index:2;
+  }
+  .carousel-btn:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+    background:rgba(18,20,28,0.85);
+  }
+  .carousel-prev{ left:16px; }
+  .carousel-next{ right:16px; }
+
+  .carousel-dots{
+    position:absolute;
+    bottom:14px;
+    left:0; right:0;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    z-index:2;
+  }
+  .carousel-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:rgba(237,238,242,0.35);
+    border:none;
+    cursor:pointer;
+    padding:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .carousel-dot.is-active{
+    background:var(--cyan);
+    transform:scale(1.2);
+  }
+
+  @media (max-width:640px){
+    .carousel{ height:220px; }
+    .carousel-btn{ width:34px; height:34px; font-size:17px; }
+  }
+
   .event-body{ padding:36px; }
   .event-grid{
     display:grid;
@@ -611,20 +687,20 @@
           <div>2025-2026</div>
         </div>
       </div>
-      
+
       <div class="carousel">
         <div class="carousel-track">
-          <img src="assets/nintendo-hero-1.jpg" >
-          <img src="assets/nintendo-hero-2.jpg" >
+          <img src="assets/nintendo-hero-1.jpg" alt="Team photo with the Splatoon 3 North American League production crew">
+          <img src="assets/nintendo-hero-2.jpg" alt="Livestream broadcast overlay with commentators">
         </div>
-        <button class="carousel-btn carousel-prev" ...>‹</button>
-        <button class="carousel-btn carousel-next" ...>›</button>
+        <button class="carousel-btn carousel-prev" aria-label="Previous photo">‹</button>
+        <button class="carousel-btn carousel-next" aria-label="Next photo">›</button>
         <div class="carousel-dots"></div>
       </div>
 
       <div class="event-body">
         <p style="color:var(--text-dim); margin-bottom:32px; max-width:760px;">
-          Responsible for In-game camera operation and created content for the Splatoon 3 North American League. 
+          Responsible for In-game camera operation and created content for the Splatoon 3 North American League.
         </p>
 
         <div class="event-grid">
@@ -735,7 +811,17 @@
     const prevBtn = carousel.querySelector('.carousel-prev');
     const nextBtn = carousel.querySelector('.carousel-next');
     const dotsWrap = carousel.querySelector('.carousel-dots');
+    const count = slides.length;
     let index = 0;
+
+    // Explicitly size the track as N full-width "pages" and each slide as 1/N of that,
+    // so translateX moves by exactly one photo at a time instead of squeezing all
+    // slides into the visible box.
+    track.style.width = `${count * 100}%`;
+    slides.forEach(slide => {
+      slide.style.flex = `0 0 ${100 / count}%`;
+      slide.style.width = `${100 / count}%`;
+    });
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -747,15 +833,15 @@
     const dots = Array.from(dotsWrap.children);
 
     function goTo(i){
-      index = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
+      index = (i + count) % count;
+      track.style.transform = `translateX(-${index * (100 / count)}%)`;
       dots.forEach((d, di) => d.classList.toggle('is-active', di === index));
     }
 
     prevBtn.addEventListener('click', () => goTo(index - 1));
     nextBtn.addEventListener('click', () => goTo(index + 1));
 
-    if(slides.length <= 1){
+    if(count <= 1){
       prevBtn.style.display = 'none';
       nextBtn.style.display = 'none';
       dotsWrap.style.display = 'none';
