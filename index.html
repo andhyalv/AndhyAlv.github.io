@@ -33,6 +33,83 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
+    /* ============ CAROUSEL ============ */
+  .carousel{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+  }
+  .carousel-track{
+    display:flex;
+    height:100%;
+    transition:transform .35s ease;
+  }
+  .carousel-track img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    flex:0 0 100%;
+    display:block;
+    cursor:zoom-in;
+  }
+  .carousel-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(18,20,28,0.6);
+    backdrop-filter:blur(4px);
+    color:var(--text);
+    font-size:20px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:border-color .2s ease, color .2s ease, background .2s ease;
+    z-index:2;
+  }
+  .carousel-btn:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+    background:rgba(18,20,28,0.85);
+  }
+  .carousel-prev{ left:16px; }
+  .carousel-next{ right:16px; }
+  
+  .carousel-dots{
+    position:absolute;
+    bottom:14px;
+    left:0; right:0;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    z-index:2;
+  }
+  .carousel-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:rgba(237,238,242,0.35);
+    border:none;
+    cursor:pointer;
+    padding:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .carousel-dot.is-active{
+    background:var(--cyan);
+    transform:scale(1.2);
+  }
+  
+  @media (max-width:640px){
+    .carousel{ height:220px; }
+    .carousel-btn{ width:34px; height:34px; font-size:17px; }
+  }
 
   h1,h2,h3, .display{
     font-family:'Barlow Condensed', sans-serif;
@@ -625,9 +702,17 @@
         </div>
       </div>
 
-      <div class="event-gallery">
-        <img src="assets/nintendo-hero-1.jpg" alt="StudioPicture">
-        <img src="assets/nintendo-hero-2.jpg" alt="Content">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/nintendo-hero-1.jpg" alt="Team photo with the production crew">
+          <img src="assets/nintendo-hero-2.jpg" alt="Livestream broadcast overlay">
+          <img src="assets/nintendo-hero-3.jpg" alt="...">
+          <img src="assets/nintendo-hero-4.jpg" alt="...">
+          <img src="assets/nintendo-hero-5.jpg" alt="...">
+        </div>
+        <button class="carousel-btn carousel-prev" aria-label="Previous photo">‹</button>
+        <button class="carousel-btn carousel-next" aria-label="Next photo">›</button>
+        <div class="carousel-dots"></div>
       </div>
 
       <div class="event-body">
