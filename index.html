@@ -459,6 +459,56 @@
     .event{ transition:none; opacity:1; transform:none; }
   }
 
+  /* ============ LIGHTBOX ============ */
+  .event-photo img,
+  .carousel-track img{
+    cursor:zoom-in;
+    transition:opacity .2s ease;
+  }
+  .event-photo img:hover,
+  .carousel-track img:hover{
+    opacity:0.85;
+  }
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(18,20,28,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:40px;
+    cursor:zoom-out;
+  }
+  .lightbox.is-open{ display:flex; }
+  .lightbox img{
+    max-width:100%;
+    max-height:100%;
+    border-radius:8px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    cursor:default;
+  }
+  .lightbox-close{
+    position:absolute;
+    top:24px; right:32px;
+    color:var(--text);
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:8px 14px;
+    cursor:pointer;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .lightbox-close:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+  }
+
 </style>
 </head>
 <body>
@@ -789,6 +839,11 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Close ✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -846,6 +901,32 @@
       nextBtn.style.display = 'none';
       dotsWrap.style.display = 'none';
     }
+  });
+
+  // Lightbox — click any event photo (single hero or carousel slide) to view full size
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.event-photo img, .carousel-track img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+    });
+  });
+
+  function closeLightbox(){
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeLightbox();
   });
 </script>
 
